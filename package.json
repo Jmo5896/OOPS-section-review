@@ -2,9 +2,13 @@
   "name": "OOPS-section-review",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
@@ -19,5 +23,8 @@
   "homepage": "https://github.com/Jmo5896/OOPS-section-review#readme",
   "dependencies": {
     "inquirer": "^7.0.3"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }
