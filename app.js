@@ -98,7 +98,7 @@ function addAnother() {
             init()
         } else {
             console.log('generating team...');
-            genHtml(myTeam);
+            console.log(genHtml(myTeam));
         }
     })
 }
