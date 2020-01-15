@@ -1,5 +1,4 @@
 const inquirer = require('inquirer');
-const fs = require('fs');
 const models = {
     Engineer: require('./lib/Engineer'),
     Intern: require('./lib/Intern'),
@@ -99,8 +98,7 @@ function addAnother() {
             init()
         } else {
             console.log('generating team...');
-            console.log(myTeam);
-            return false;
+            genHtml(myTeam);
         }
     })
 }
