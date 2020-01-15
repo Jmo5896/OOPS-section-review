@@ -34,11 +34,56 @@ function init() {
             choices: ['Engineer', 'Intern', 'Manager']
         }
     ]).then(ans => {
-        const teamMember = new models[ans.profession](ans.name, ans.id, ans.email);
-        myTeam.push(teamMember);
-
-        addAnother()
+        if (ans.profession === "Engineer") {
+            engineer(ans);
+        } else if (ans.profession === "Intern") {
+            intern(ans);
+        } else {
+            manager(ans);
+        }
     })
+}
+
+function engineer(data) {
+    inquirer.prompt([
+        {
+            type: 'type',
+            name: 'github',
+            message: 'What is your team members github user name?'
+        }
+    ]).then(ans => {
+        const teamMember = new models[data.profession](data.name, data.id, data.email, ans.github);
+        myTeam.push(teamMember);
+        addAnother()
+    });
+}
+
+function intern(data) {
+    inquirer.prompt([
+        {
+            type: 'type',
+            name: 'school',
+            message: 'What school is your team member from?'
+        }
+    ]).then(ans => {
+        const teamMember = new models[data.profession](data.name, data.id, data.email, ans.school);
+        myTeam.push(teamMember);
+        addAnother();
+    });
+}
+
+function manager(data) {
+    inquirer.prompt([
+        {
+            type: 'type',
+            name: 'office',
+            message: 'What is your team members office number?'
+        }
+    ]).then(ans => {
+        const teamMember = new models[data.profession](data.name, data.id, data.email, ans.office);
+        myTeam.push(teamMember);
+        addAnother();
+    });
 }
 
 function addAnother() {
